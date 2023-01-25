@@ -1,0 +1,9 @@
+input:focus:invalid {
+    background-color: bisque;
+}
+input:valid{
+    background-image: url("check.jpg");
+    background-size: 10%;
+    background-position: right top;
+    background-repeat: no-repeat;
+}
