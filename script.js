@@ -1,3 +1,8 @@
+function afficher() {
+    let valeur = document.forms[0]["patates"].value;
+    document.getElementById("valeur").innerText = valeur;
+}
+
 function valider() {
     let mdp1 = document.forms[0]["mdp1"].value;
     let mdp2 = document.forms[0]["mdp2"].value;
