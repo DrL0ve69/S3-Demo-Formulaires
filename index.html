@@ -26,6 +26,14 @@
       <option value="France">France</option>
     </select></label><br/>
 
+    <!-- Ajout d'une liste déroulante avec l'option d'écrire notre propre texte --->
+    <label>Province <input required list="provinces">
+      <datalist id="provinces">
+        <option value="QC"><legende>Une province francophone</legende> <!-- legende ajoute une description à l'option -->
+        <option value="ON">
+      </datalist>
+    </label>
+
     <label>Commentaires<br/>
       <textarea name="commentaire"></textarea>
     </label><br/>
@@ -34,7 +42,9 @@
     <label><input type="checkbox" name="publicite">Je veux recevoir de la publicité</label><br/>
 
     <label>Mot de passe <input name="mdp1" type="password" required/></label><br/>
-    <label>Mot de passe <input name="mdp2" type="password" required/></label><br/>
+    <label>Mot de passe <input name="mdp2" type="password" onblur="valider()" required /></label>
+      <!-- Ajouter un message d'erreur qui va apparaître et disparaître avec javascript et css -->
+      <p id="erreur_mdp" class="invisible">Les 2 mots de passe doivent être identiques et contenir au moins 8 caractères</p><br/>
     <!-- submit exécute l'action du form sauf si la fonction dans onclick retourne false -->
     <input type="submit" value="Connexion" onclick="return valider()" required/>
     <input type="reset" value="Effacer">
