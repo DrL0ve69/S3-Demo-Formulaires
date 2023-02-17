@@ -5,55 +5,61 @@
     <title>Formulaire</title>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
   <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Formulaire d'inscription</h1>
-  <form method="post" action="connecte.html">
-    <label>Nom <input name="nom" type="text" required/></label><br/>
-    <label>Prénom <input name="prenom" type="text" required/></label><br/>
-    <label>Courriel <input name="courriel" type="email" required placeholder="user@domaine.com"
+  <form class="container" method="post" action="connecte.html">
+    <h1>Formulaire d'inscription</h1>
+    <label class="row"><span class="col-2">Nom</span> <input class="col-8" name="nom" type="text" required/></label><br/>
+    <label class="row"><span class="col-2">Prénom </span> <input class="col-8" name="prenom" type="text" required/></label><br/>
+    <label class="row"><span class="col-2">Courriel</span> <input class="col-8" name="courriel" type="email" required placeholder="user@domaine.com"
                             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" /></label><br/>
-    <label>Téléphone <input name="tel" type="tel" required placeholder="819-555-5555"
+    <label class="row"><span class="col-2">Téléphone </span> <input class="col-8" name="tel" type="tel" required placeholder="819-555-5555"
                             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" /></label><br/>
 
-    <label>Sexe <input type="radio" name="sexe" value="F">Femme</input>
-      <input type="radio" name="sexe" value="H" >Homme</input>
-      <input type="radio" name="sexe" value="A" >Autre</input>   </label><br/>
+    <label class="row"><span class="col-2">Sexe </span>
+      <input class="col-2" type="radio" name="sexe" value="F">Femme</input>
+      <input  class="col-2"  type="radio" name="sexe" value="H" >Homme</input>
+      <input class="col-2"  type="radio" name="sexe" value="A" >Autre</input>   </label><br/>
 
-    <label>Pays <select name="pays">
+    <label class="row"><span class="col-2">Pays </span> <select class="col-8" name="pays">
       <option></option>
       <option value="Canada">Canada</option>
       <option value="France">France</option>
     </select></label><br/>
 
     <!-- Ajout d'une liste déroulante avec l'option d'écrire notre propre texte --->
-    <label>Province <input required list="provinces">
+    <label class="row"><span class="col-2">Province</span> <input class="col-8" required list="provinces">
       <datalist id="provinces">
         <option value="QC"><legende>Une province francophone</legende> <!-- legende ajoute une description à l'option -->
         <option value="ON">
       </datalist>
-    </label>
+    </label><br>
 
-    <label>Commentaires<br/>
-      <textarea name="commentaire"></textarea>
+    <label class="row"><span class="col-2">Commentaires</span><br/>
+      <textarea class="col-8" name="commentaire"></textarea>
     </label><br/>
 
-    Patates
-    <input id="patates" type="range" name="patates"> <!--onchange="afficher()"--><span id="valeur">50</span>
-
+    <label class="row">
+    <span class="col-2">Patates</span>
+    <input class="col-7" id="patates" type="range" name="patates"> <!--onchange="afficher()"--><span class="col-2" id="valeur">50</span>
+    </label>
     <br/>
-    <label><input type="checkbox" name="condtion" required>J'accepte les conditions</label><br/>
-    <label><input type="checkbox" name="publicite">Je veux recevoir de la publicité</label><br/>
+    <label class="row"> <input class="col-2" type="checkbox" name="condtion" required><span class="col-8">J'accepte les conditions</span></label><br/>
+    <label class="row"> <input class="col-2" type="checkbox" name="publicite"><span class="col-8">Je veux recevoir de la publicité</span></label><br/>
 
-    <label>Mot de passe <input id="mdp1" name="mdp1" type="password" required/></label><br/>
-    <label>Mot de passe <input id="mdp2" name="mdp2" type="password" required /></label>
+    <label class="row"><span class="col-2">Mot de passe </span> <input class="col-8" id="mdp1" name="mdp1" type="password" required/></label><br/>
+    <label class="row"><span class="col-2">Mot de passe </span> <input class="col-8" id="mdp2" name="mdp2" type="password" required /></label>
       <!-- Ajouter un message d'erreur qui va apparaître et disparaître avec javascript et css -->
       <p id="erreur_mdp" class="invisible">Les 2 mots de passe doivent être identiques et contenir au moins 8 caractères</p><br/>
     <!-- submit exécute l'action du form sauf si la fonction dans onclick retourne false -->
-    <input type="submit" value="Connexion" onclick="return valider()" required/>
-    <input type="reset" value="Effacer">
-    <input type="button" value="Popup" onclick="alert('allo')">
+    <div class="row p-2">
+      <input class="col-4" type="submit" value="Connexion" onclick="return valider()" required/>
+      <input class="col-4" type="reset" value="Effacer">
+      <input class="col-4" type="button" value="Popup" onclick="alert('allo')">
+    </div>
   </form>
 </body>
 </html>
