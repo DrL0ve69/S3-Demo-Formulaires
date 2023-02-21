@@ -12,67 +12,95 @@
 <body>
   <form class="container" method="post" action="connecte.html">
     <h1>Formulaire d'inscription</h1>
-    <label class="row">
-      <span class="col-2">Nom</span>
-      <input class="col-8" name="nom" type="text" required/>
-    </label><br/>
-    <label class="row">
-      <span class="col-2">Prénom </span>
-      <input class="col-8" name="prenom" type="text" required/>
-    </label><br/>
-    <label class="row"><span class="col-2">Courriel</span> <input class="col-8" name="courriel" type="email" required placeholder="user@domaine.com"
-                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" /></label><br/>
-    <label class="row"><span class="col-2">Téléphone </span> <input class="col-8" name="tel" type="tel" required placeholder="819-555-5555"
-                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" /></label><br/>
 
-    <label class="row">
-      <span class="col-2">Sexe </span>
-      <input class="col-2" type="radio" name="sexe" value="F">Femme
-      <input class="col-2" type="radio" name="sexe" value="H" >Homme
-      <input class="col-2" type="radio" name="sexe" value="A" >Autre
-    </label><br/>
+    <label class="row py-2">
+      <span class="col-md-2">Nom</span>
+      <input class="col-md-8" name="nom" type="text" required/>
+    </label>
 
-    <label class="row"><span class="col-2">Pays </span> <select class="col-8" name="pays">
-      <option></option>
-      <option value="Canada">Canada</option>
-      <option value="France">France</option>
-    </select></label><br/>
+    <label class="row py-2">
+      <span class="col-md-2">Prénom </span>
+      <input class="col-md-8" name="prenom" type="text" required/>
+    </label>
+
+    <label class="row py-2">
+      <span class="col-md-2">Courriel</span>
+      <input class="col-md-8" name="courriel" type="email" required placeholder="user@domaine.com"
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+    </label>
+
+    <label class="row py-2">
+      <span class="col-md-2">Téléphone </span>
+      <input class="col-md-8" name="tel" type="tel" required placeholder="819-555-5555"
+                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
+    </label>
+
+    <label class="row py-2">
+      <span class="col-md-2">Sexe </span>
+      <input class="col-md-1" type="radio" name="sexe" value="F"><span class="col-md-2">Femme</span>
+      <input class="col-md-1" type="radio" name="sexe" value="H"><span class="col-md-2">Homme</span>
+      <input class="col-md-1" type="radio" name="sexe" value="A"><span class="col-md-2">Autre</span>
+    </label>
+
+    <label class="row py-2">
+      <span class="col-md-2">Pays </span>
+      <select class="col-md-8" name="pays">
+        <option></option>
+        <option value="Canada">Canada</option>
+        <option value="France">France</option>
+      </select>
+    </label>
 
     <!-- Ajout d'une liste déroulante avec l'option d'écrire notre propre texte --->
-    <label class="row"><span class="col-2">Province</span> <input class="col-8" required list="provinces">
+    <label class="row py-2">
+      <span class="col-md-2">Province</span>
+      <input class="col-md-8" required list="provinces">
       <datalist id="provinces">
         <option value="QC"><legend>Une province francophone</legend> <!-- legende ajoute une description à l'option -->
         <option value="ON">
       </datalist>
-    </label><br>
-
-    <label class="row"><span class="col-2">Commentaires</span><br/>
-      <textarea class="col-8" name="commentaire"></textarea>
-    </label><br/>
-
-    <label class="row">
-    <span class="col-2">Patates</span>
-    <input class="col-7" id="patates" type="range" name="patates"> <!--onchange="afficher()"--><span class="col-2" id="valeur">50</span>
     </label>
-    <br/>
-    <label class="row">
-      <input class="col-2" type="checkbox" name="condtion" required>
-      <span class="col-8">J'accepte les conditions</span>
-    </label><br/>
-    <label class="row">
-      <input class="col-2" type="checkbox" name="publicite">
-      <span class="col-8">Je veux recevoir de la publicité</span>
-    </label><br/>
 
-    <label class="row"><span class="col-2">Mot de passe </span> <input class="col-8" id="mdp1" name="mdp1" type="password" required/></label><br/>
-    <label class="row"><span class="col-2">Mot de passe </span> <input class="col-8" id="mdp2" name="mdp2" type="password" required /></label>
-      <!-- Ajouter un message d'erreur qui va apparaître et disparaître avec javascript et css -->
-      <p id="erreur_mdp" class="invisible">Les 2 mots de passe doivent être identiques et contenir au moins 8 caractères</p><br/>
+    <label class="row py-2">
+      <span class="col-md-2">Commentaires</span>
+      <textarea class="col-md-8" name="commentaire"></textarea>
+    </label>
+
+    <label class="row py-2">
+      <span class="col-md-2">Patates</span>
+      <input class="col-md-7" id="patates" type="range" name="patates"> <!--onchange="afficher()"-->
+      <span class="col-md-1 text-end" id="valeur">50</span>
+    </label>
+
+    <label class="row py-2">
+      <input class="col-md-1" type="checkbox" name="condtion" required>
+      <span class="col-md-1"></span>
+      <span class="col-md-8">J'accepte les conditions</span>
+    </label>
+    <label class="row py-2">
+      <input class="col-md-1" type="checkbox" name="publicite">
+      <span class="col-md-1"></span>
+      <span class="col-md-8">Je veux recevoir de la publicité</span>
+    </label>
+
+    <label class="row py-2">
+      <span class="col-md-2">Mot de passe </span>
+      <input class="col-md-8" id="mdp1" name="mdp1" type="password" required/>
+    </label>
+    <label class="row py-2">
+      <span class="col-md-2">Mot de passe </span>
+      <input class="col-md-8" id="mdp2" name="mdp2" type="password" required />
+    </label>
+    <!-- Ajouter un message d'erreur qui va apparaître et disparaître avec javascript et css -->
+    <div class="row py-2">
+      <span class="col-md-2"></span>
+      <p class="col-md-9" id="erreur_mdp" >Les 2 mots de passe doivent être identiques et contenir au moins 8 caractères</p>
+    </div>
     <!-- submit exécute l'action du form sauf si la fonction dans onclick retourne false -->
-    <div class="row p-2">
-      <input class="col-4" type="submit" value="Connexion" onclick="return valider()" required/>
-      <input class="col-4" type="reset" value="Effacer">
-      <input class="col-4" type="button" value="Popup" onclick="alert('allo')">
+    <div class="row py-2">
+      <span class="col-md-4 px-2"><input class="col-md-12" type="submit" value="Connexion" onclick="return valider()" required></span>
+      <span class="col-md-4 px-2"><input class="col-md-12" type="reset" value="Effacer"></span>
+      <span class="col-md-4 px-2"><input class="col-md-12" type="button" value="Popup" onclick="alert('allo')"></span>
     </div>
   </form>
 </body>
