@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+    <script src="script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+     <form class="container" name="formulaire_info" method="post" action="../connecte.html">
+         <h1>Formulaire d'inscription</h1>
+
+         <div class="container" id="info_contact">
+             <h2>Informations du contact</h2>
+
+             <label class="row py-2">
+                 <span class="col-md-2">Nom</span>
+                 <input class="col-md-8" name="nom" type="text" maxlength="25" placeholder="Love" required/>
+             </label>
+
+             <label class="row py-2">
+                 <span class="col-md-2">Prénom </span>
+                 <input class="col-md-8" name="prenom" type="text" placeholder="Docteur" required/>
+             </label>
+
+             <label class="row py-2">
+                 <span class="col-md-2">Courriel</span>
+                 <input class="col-md-8" name="courriel" type="email" required placeholder="user@domaine.com"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+             </label>
+
+             <label class="row py-2">
+                 <span class="col-md-2">Téléphone </span>
+                 <input class="col-md-8" name="tel" type="tel" required placeholder="819-420-6969"
+                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
+             </label>
+
+             <label class="row py-2">
+                 <span class="col-md-2">Sexe </span>
+                 <input class="col-md-1" type="radio" name="sexe" value="F"><span class="col-md-2">Femme</span>
+                 <input class="col-md-1" type="radio" name="sexe" value="H"><span class="col-md-2">Homme</span>
+                 <input class="col-md-1" type="radio" name="sexe" value="A"><span class="col-md-2">Intersexe</span>
+
+             </label>
+
+             <label class="row py-2">
+                 <span class="col-md-2">État </span>
+                 <select class="col-md-8" name="etats">
+                     <option value="Québec">Vive Le Québec Libre Tabarnak</option>
+                     <option value="Angleterre">Angleterre</option>
+                     <option value="France">France</option>
+                     <option value="Mexique">Mexique</option>
+                 </select>
+             </label>
+
+             <!-- Ajout d'une liste déroulante avec l'option d'écrire notre propre texte --->
+             <label class="row py-2">
+                 <span class="col-md-2">Province</span>
+                 <input class="col-md-8" required list="provinces">
+                 <datalist id="provinces">
+                     <option value="QC"> <!-- légende ajoute une description à l'option -->
+                     <option value="ON">
+                     <option value="Hull la 07 mothafucka">
+                     <option value="Hullywood in da hood">
+                     <option value="Gtown">
+                     <option value="A_Y_StayHigh">
+                     <option value="Gatineau Beach">
+                 </datalist>
+             </label>
+
+             <label class="row py-2">
+                 <span class="col-md-2">Commentaires</span>
+                 <textarea class="col-md-8" name="commentaire"></textarea>
+             </label>
+
+         </div>
+
+         <div class="container">
+
+             <label class="row py-2">
+                 <span class="col-md-2">Patates</span>
+                 <input class="col-md-7" id="patates" type="range" name="patates"> <!--onchange="afficher()"-->
+                 <span class="col-md-1 text-end" id="valeur">50</span>
+             </label>
+
+             <div class="form-check">
+
+                 <label class="row py-2">
+                     <input class="col-md-1" type="checkbox" name="condtion" required>
+                     <span class="col-md-1"></span>
+                     <span class="col-md-8">J'accepte les conditions</span>
+                 </label>
+                 <label class="row py-2">
+                     <input class="col-md-1" type="checkbox" name="publicite">
+                     <span class="col-md-1"></span>
+                     <span class="col-md-8">Je veux recevoir de la publicité</span>
+                 </label>
+
+             </div>
+
+             <label class="row py-2">
+                 <span class="col-md-2">Mot de passe </span>
+                 <input class="col-md-8" id="mdp1" name="mdp1" type="password" required/>
+             </label>
+             <label class="row py-2">
+                 <span class="col-md-2">Mot de passe </span>
+                 <input class="col-md-8" id="mdp2" name="mdp2" type="password" required />
+             </label>
+             <!-- Ajouter un message d'erreur qui va apparaître et disparaître avec javascript et css -->
+             <div class="row py-2">
+                 <span class="col-md-2"></span>
+                 <p class="col-md-9" id="erreur_mdp" style="color: red">Les 2 mots de passe doivent être identiques et contenir au moins 8 caractères</p>
+             </div>
+
+         </div>
+
+         <div class="row py-2" id="mesBoutons">
+             <input class="col-md-3 mx-3" type="submit" value="Connexion" onclick="return valider()" required>
+             <input class="col-md-3 mx-4" type="reset" value="Effacer">
+             <input class="col-md-3 mx-3" type="button" value="Popup" onclick="alert('allo')">
+         </div>
+
+     </form>
+</body>
+</html>
