@@ -3,41 +3,25 @@
     //document.getElementById("valeur").innerText = valeur;
 //}
 
-// Attendre que le html doit prêt : évènement onload
-$(document).ready(function (){
-
-    // Gérer l'évenement change sur le slider
-    $("#patates").change(function (){
-        $("#valeur").text($(this).val());
-    });
-
-    $("#mdp1").blur(function(){
-        if ($("#mdp1").val().length < 8){
-            $("#erreur_mdp").html("Le mot de passe doit contenir au moins <strong>8 caractères</strong>");
-            $("#erreur_mdp").removeClass("invisible");
-        }
-    });
-
-});
-function valider() {
-    let mdp1 = document.forms[0]["mdp1"].value;
-    let mdp2 = document.forms[0]["mdp2"].value;
-
-    if (mdp1 === mdp2 && mdp1.length >= 8) {
-        // On veut aussi avoir minimum 8 caractères
-        // On veut aussi avoir des chiffres et des lettres
-        document.getElementById("erreur_mdp").setAttribute("class", "invisible");
-        return true
-    } else {
-        if(mdp1 != mdp2){
-            document.getElementById("erreur_mdp").innerHTML = "Les 2 mots de passe doivent être <strong>identiques</strong>";
-        }
-        else if(mdp1.length < 8){
-            document.getElementById("erreur_mdp").innerHTML = "Le mot de passe doit contenir au moins <strong>8 caractères</strong>";
-        }
-        //alert("Les 2 mots de passe doivent être identiques et contenir au moins 8 caractères")
-        //Remplacer le pop-up par un message sur la page:
-        document.getElementById("erreur_mdp").setAttribute("class", "");
-        return false; //Empêcher l'envoie du formulaire
-    }
+// Validation du nom d'utilisateur
+const texteNomUtilisateur = document.getElementById("nomUtilisateur");
+var nomUtilisateurEntre = document.getElementById("nomUtilisateur").value;
+var nomUtilisateurTest = /^(a-z|A-Z)+(0-9){0|1|2}$/.test(nomUtilisateurEntre);
+function NomValide(){
+    if(nomUtilisateurTest===false){ texteNomUtilisateur.validity = "false"; }
+    else { texteNomUtilisateur.validity= "true"; }
 }
+const texteAdresseCourriel = document.getElementById('adresseCourriel');
+const adresseCourrielEntre = document.getElementById("adresseCourriel").value;
+var adresseCourrielTest = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/.test(adresseCourrielEntre);
+function EmailValide(){
+    if(adresseCourrielTest===false) { texteAdresseCourriel.validity= "false"; }
+    else{ adresseCourrielEntre.style.color = "green"; texteAdresseCourriel.style.borderColor="green"; }
+}
+function PasswordValide(){
+    const passUtilisateur = document.getElementById("password").value;
+    const passUtilisateurElement = document.getElementById("password");
+    if(passUtilisateur===nomUtilisateurEntre) {alert("Votre mot de passe est le même que le nom d'utilisateur "); }
+}
+
+

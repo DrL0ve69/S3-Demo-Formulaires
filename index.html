@@ -10,98 +10,67 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <form class="container" method="post" action="connecte.html">
-    <h1>Formulaire d'inscription</h1>
 
-    <label class="row py-2">
-      <span class="col-md-2">Nom</span>
-      <input class="col-md-8" name="nom" type="text" required/>
-    </label>
+    <h1>Formulaire d'inscription : </h1>
 
-    <label class="row py-2">
-      <span class="col-md-2">Prénom </span>
-      <input class="col-md-8" name="prenom" type="text" required/>
-    </label>
+  <form name="formulaireExamen1" id="formulaireComplet" method="post" action="mailto:prof@cegep.com" enctype="text/plain">
 
-    <label class="row py-2">
-      <span class="col-md-2">Courriel</span>
-      <input class="col-md-8" name="courriel" type="email" required placeholder="user@domaine.com"
-                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
-    </label>
+    <fieldset name="fieldsetExamen1">
 
-    <label class="row py-2">
-      <span class="col-md-2">Téléphone </span>
-      <input class="col-md-8" name="tel" type="tel" required placeholder="819-555-5555"
-                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" />
-    </label>
+      <div class="containerNomUtilisateur">
 
-    <label class="row py-2">
-      <span class="col-md-2">Sexe </span>
-      <input class="col-md-1" type="radio" name="sexe" value="F"><span class="col-md-2">Femme</span>
-      <input class="col-md-1" type="radio" name="sexe" value="H"><span class="col-md-2">Homme</span>
-      <input class="col-md-1" type="radio" name="sexe" value="A"><span class="col-md-2">Autre</span>
-    </label>
+        <label id="labelNomUtilisateur" for="nomUtilisateur">Nom d'utilisateur :
+          <input type="text" name="nomUtilisateur" id="nomUtilisateur" size="50" onblur="NomValide()" required>
+        </label>
 
-    <label class="row py-2">
-      <span class="col-md-2">Pays </span>
-      <select class="col-md-8" name="pays">
-        <option></option>
-        <option value="Canada">Canada</option>
-        <option value="France">France</option>
-      </select>
-    </label>
+      </div>
 
-    <!-- Ajout d'une liste déroulante avec l'option d'écrire notre propre texte --->
-    <label class="row py-2">
-      <span class="col-md-2">Province</span>
-      <input class="col-md-8" required list="provinces">
-      <datalist id="provinces">
-        <option value="QC"><legend>Une province francophone</legend> <!-- legende ajoute une description à l'option -->
-        <option value="ON">
-      </datalist>
-    </label>
+      <div class="containerCourriel">
 
-    <label class="row py-2">
-      <span class="col-md-2">Commentaires</span>
-      <textarea class="col-md-8" name="commentaire"></textarea>
-    </label>
+        <label id="labelAdresseCourriel" for="adresseCourriel">Adresse Courriel :
+          <input type="email" name="adresseCourriel" id="adresseCourriel" size="50" onblur="EmailValide()" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required> <!-- cc exerciceFormulaire -->
+        </label>
 
-    <label class="row py-2">
-      <span class="col-md-2">Patates</span>
-      <input class="col-md-7" id="patates" type="range" name="patates"> <!--onchange="afficher()"-->
-      <span class="col-md-1 text-end" id="valeur">50</span>
-    </label>
+      </div>
 
-    <label class="row py-2">
-      <input class="col-md-1" type="checkbox" name="condtion" required>
-      <span class="col-md-1"></span>
-      <span class="col-md-8">J'accepte les conditions</span>
-    </label>
-    <label class="row py-2">
-      <input class="col-md-1" type="checkbox" name="publicite">
-      <span class="col-md-1"></span>
-      <span class="col-md-8">Je veux recevoir de la publicité</span>
-    </label>
+      <div class="containerPassword">
 
-    <label class="row py-2">
-      <span class="col-md-2">Mot de passe </span>
-      <input class="col-md-8" id="mdp1" name="mdp1" type="password" required/>
-    </label>
-    <label class="row py-2">
-      <span class="col-md-2">Mot de passe </span>
-      <input class="col-md-8" id="mdp2" name="mdp2" type="password" required />
-    </label>
-    <!-- Ajouter un message d'erreur qui va apparaître et disparaître avec javascript et css -->
-    <div class="row py-2">
-      <span class="col-md-2"></span>
-      <p class="col-md-9" id="erreur_mdp" >Les 2 mots de passe doivent être identiques et contenir au moins 8 caractères</p>
-    </div>
-    <!-- submit exécute l'action du form sauf si la fonction dans onclick retourne false -->
-    <div class="row py-2">
-      <input class="col-md-3 mx-3" type="submit" value="Connexion" onclick="return valider()" required>
-      <input class="col-md-3 mx-4" type="reset" value="Effacer">
-      <input class="col-md-3 mx-3" type="button" value="Popup" onclick="alert('allo')">
-    </div>
+        <label id="labelPassword" for="password">Mot de passe :
+          <input type="password" name="password" id="password" size="50" onblur="PasswordValide()" required>
+        </label>
+
+      </div>
+
+        <div class="containerSexe">
+          <label for="sexeM">Sexe :
+            <input type="radio" name="sexe" id="sexeM">Homme
+          </label>
+          <label for="sexeF">
+            <input type="radio" name="sexe" id="sexeF">Femme
+          </label>
+        </div>
+
+      <label for="dateDeNaissance"> Date de naissance :
+        <input type="date" name="dateNaissance" id="dateDeNaissance" required>
+      </label>
+      <div class="containerInfoPromo">
+        <h2>Veuillez m'envoyer :</h2>
+
+        <label for="infoPromo1" id="labelInfoPromo1">
+          <input type="checkbox" name="checkBoxPromoInfolettre" id="infoPromo1" multiple>Infolettre
+        </label>
+
+        <label for="infoPromo2">
+          <input type="checkbox" name="checkBoxPromoOffres" id="infoPromo2" multiple>Offres promotionnelles
+        </label>
+
+      </div>
+<!-- Manque la fonction qui valide dans le onsubmit, qui createelement p dont value = erreur + onfocus la case d'erreur-->
+      <input type="submit" name="envoyer" value="Envoyer" onsubmit="document.getElementById('password').hidden;">
+
+    </fieldset>
+
   </form>
+<!-- Sources : notes de cours, site modzilla, youtube -->
 </body>
 </html>

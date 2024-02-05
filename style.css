@@ -1,17 +1,6 @@
-input:focus:invalid {
-    background-color: bisque;
-}
-input:valid{
-    background-image: url("check.jpg");
-    background-size: 10%;
-    background-position: right top;
-    background-repeat: no-repeat;
-}
 
-#erreur_mdp{
-    color: red;
-}
-
-.invisible{
-    display: none;
-}
+label { display: flex; justify-content: start; margin: 1rem; }
+.containerSexe, label{ display: flex; }
+.containerInfoPromo > * { display: block;}
+input:invalid { color: red; }
+input:valid { color: darkgreen;}
