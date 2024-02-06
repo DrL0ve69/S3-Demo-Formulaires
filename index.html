@@ -20,7 +20,7 @@
       <div class="containerNomUtilisateur">
 
         <label id="labelNomUtilisateur" for="nomUtilisateur">Nom d'utilisateur :
-          <input type="text" name="nomUtilisateur" id="nomUtilisateur" size="50" onblur="NomValide()" required>
+          <input type="text" name="nomUtilisateur" id="nomUtilisateur" size="50" onblur="NomValide()" pattern="^[a-z]{0,20}[0-9]{0,2}$" required>
         </label>
 
       </div>
@@ -28,7 +28,7 @@
       <div class="containerCourriel">
 
         <label id="labelAdresseCourriel" for="adresseCourriel">Adresse Courriel :
-          <input type="email" name="adresseCourriel" id="adresseCourriel" size="50" onblur="EmailValide()" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required> <!-- cc exerciceFormulaire -->
+          <input type="email" name="adresseCourriel" id="adresseCourriel" size="50" onblur="EmailValide();" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required> <!-- cc exerciceFormulaire -->
         </label>
 
       </div>
@@ -36,17 +36,17 @@
       <div class="containerPassword">
 
         <label id="labelPassword" for="password">Mot de passe :
-          <input type="password" name="password" id="password" size="50" onblur="PasswordValide()" required>
+          <input type="password" name="password" id="password" size="50" onblur="PasswordValide();" required>
         </label>
 
       </div>
 
         <div class="containerSexe">
           <label for="sexeM">Sexe :
-            <input type="radio" name="sexe" id="sexeM">Homme
+            <input type="radio" name="sexe" id="sexeM" required>Homme
           </label>
           <label for="sexeF">
-            <input type="radio" name="sexe" id="sexeF">Femme
+            <input type="radio" name="sexe" id="sexeF" required>Femme
           </label>
         </div>
 
@@ -66,7 +66,7 @@
 
       </div>
 <!-- Manque la fonction qui valide dans le onsubmit, qui createelement p dont value = erreur + onfocus la case d'erreur-->
-      <input type="submit" name="envoyer" value="Envoyer" onsubmit="document.getElementById('password').hidden;">
+      <input type="submit" name="envoyer" value="Envoyer" id="boutonSubmit" onsubmit="FormulaireValide();">
 
     </fieldset>
 
